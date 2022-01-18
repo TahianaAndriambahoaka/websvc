@@ -3,7 +3,6 @@ package com.example.webservice.controller;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
@@ -14,14 +13,14 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("api/file")
 public class FileRestController 
 {
-    private String uploadLocation = "Java Webservice/webservice/upload";
+    private String uploadLocation = "Java Webservice/upload";
 
     public FileRestController() throws IOException
     {
         var uploadPath = Paths.get(uploadLocation);
         if(!Files.exists(uploadPath))
-            Files.createDirectories(uploadPath);
         {
+            Files.createDirectories(uploadPath);
         }
     }
 
