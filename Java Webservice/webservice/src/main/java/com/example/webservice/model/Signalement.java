@@ -41,8 +41,7 @@ public class Signalement {
 	private long idUtilisateur;
 
 	public Signalement(){}
-	public Signalement(long id, long idType, Integer idRegion, String status, Date dateHeure, double latitude,
-			double longitude, String description, long idUtilisateur) {
+	public Signalement(long id, long idType, Integer idRegion, String status, Date dateHeure, double latitude,double longitude, String description, long idUtilisateur) {
 		this.id = id;
 		this.idType = idType;
 		this.idRegion = idRegion;
