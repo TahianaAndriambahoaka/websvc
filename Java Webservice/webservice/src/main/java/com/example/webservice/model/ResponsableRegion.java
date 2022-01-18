@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Responsable_region")
+@Table(name="ResponsableRegion")
 public class ResponsableRegion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
