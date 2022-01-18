@@ -20,7 +20,7 @@ public class Signalement {
 	private long idType;
 	
 	@Column(name="idregion")
-	private long idRegion;
+	private Integer idRegion;
 	
 	@Column(name="status")
 	private String status;
@@ -40,6 +40,21 @@ public class Signalement {
 	@Column(name="idutilisateur")
 	private long idUtilisateur;
 
+	public Signalement(){}
+	public Signalement(long id, long idType, Integer idRegion, String status, Date dateHeure, double latitude,
+			double longitude, String description, long idUtilisateur) {
+		this.id = id;
+		this.idType = idType;
+		this.idRegion = idRegion;
+		this.status = status;
+		this.dateHeure = dateHeure;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.description = description;
+		this.idUtilisateur = idUtilisateur;
+	}
+
+
 	public long getId() {
 		return id;
 	}
@@ -56,11 +71,11 @@ public class Signalement {
 		this.idType = idType;
 	}
 
-	public long getIdRegion() {
+	public int getIdRegion() {
 		return idRegion;
 	}
 
-	public void setIdRegion(long idRegion) {
+	public void setIdRegion(Integer idRegion) {
 		this.idRegion = idRegion;
 	}
 
