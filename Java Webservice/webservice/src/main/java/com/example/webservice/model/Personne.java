@@ -22,17 +22,36 @@ public class Personne {
 	@Column(name="prenom")
 	private String prenom;
 
-	@Column(name="login")
-	private String login;
+	@Column(name="username")
+	private String username;
 
-	@Column(name="mdp")
-	private String mdp;
+	@Column(name="password")
+	private String password;
 
 	@Column(name="ddn")
 	private Date ddn;
 
 	@Column(name="pdp")
 	private String pdp;
+
+	public Personne()
+	{
+
+	}
+	/*public Personne(String username,String password)
+	{
+		this.username=username;
+		this.password=password;
+	}*/
+
+	public Personne(String username,String password,String nom,String prenom)
+	{
+		this.username=username;
+		this.password= password;
+		this.nom = nom;
+		this.prenom=prenom;
+
+	}
 
 	public long getId() {
 		return id;
@@ -58,20 +77,20 @@ public class Personne {
 		this.prenom = prenom;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getMdp() {
-		return mdp;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Date getDdn() {
