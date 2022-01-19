@@ -88,9 +88,8 @@ public class SignalementController {
 	{
 		return this.signalementRepository.findByIdRegion(idRegion);
 	}
-	//One
-	
 
+	//One
 	@GetMapping("/signalement/{id}")
     public List<List<Object>> getSignalementById(@PathVariable(value = "id") Long sId) throws ResourceNotFoundException {
 		return this.signalementRepository.findOneSignalement(sId);
@@ -139,5 +138,48 @@ public class SignalementController {
         Map<String,Boolean> response = new HashMap<>();
         response.put("deleted",Boolean.TRUE);
         return response;
+	}
+	
+	//Recherche avancée BackOffice
+	@GetMapping("/rechercherSignalement/annee={annee}&moisDebut={moisDebut}&moisFin={moisFin}&idType={idType}")
+	public List<Signalement> rechercherSignalementBackOffice(@PathVariable(value="annee") Integer annee, @PathVariable(value="moisDebut") Integer moisDebut, @PathVariable(value="moisFin") Integer moisFin, @PathVariable(value="idType") Long idType) throws Exception
+	{
+		return this.signalementRepository.rechercherSignalementBackOffice(annee, moisDebut, moisFin, idType);
+	}
+	//Recherche avancée BackOffice
+	@GetMapping("/rechercherSignalement/annee={annee}/idType={idType}")
+	public List<Signalement> rechercherSignalementBackOffice(@PathVariable(value="annee") Integer annee, @PathVariable(value="idType") Long idType) throws Exception
+	{
+		return this.signalementRepository.rechercherSignalementBackOffice(annee, idType);
+	}
+	//Recherche avancée BackOffice
+	@GetMapping("/rechercherSignalement/annee{annee}&moisDebut={moisDebut}&moisFin={moisFin}")
+	public List<Signalement> rechercherSignalementBackOffice(@PathVariable(value="annee") Integer annee, @PathVariable(value="moisDebut") Integer moisDebut, @PathVariable(value="moisFin") Integer moisFin) throws Exception
+	{
+		return this.signalementRepository.rechercherSignalementBackOffice(annee, moisDebut, moisFin);
+	}
+	//Recherche avancée BackOffice
+	@GetMapping("/rechercherSignalement/annee={annee}")
+	public List<Signalement> rechercherSignalementBackOffice(@PathVariable(value="annee") Integer annee) throws Exception
+	{
+		return this.signalementRepository.rechercherSignalementBackOffice(annee);
+	}
+	//Recherche avancée BackOffice
+	@GetMapping("/rechercherSignalement/moisDebut={moisDebut}&moisFin={moisFin}")
+	public List<Signalement> rechercherSignalementBackOffice(@PathVariable(value="moisDebut") Integer moisDebut, @PathVariable(value="moisFin") Integer moisFin) throws Exception
+	{
+		return this.signalementRepository.rechercherSignalementBackOffice(moisDebut, moisFin);
+	}
+	//Recherche avancée BackOffice
+	@GetMapping("/rechercherSignalement/idType={idType}")
+	public List<Signalement> rechercherSignalementBackOffice(@PathVariable(value="idType") Long idType) throws Exception
+	{
+		return this.signalementRepository.rechercherSignalementBackOffice(idType);
+	}
+	// getNbSignalementParType BackOffice
+	@GetMapping("/rechercherSignalement/getNbSignalementParType")
+	List<Object> getNbSignalementParType()
+	{
+		return this.signalementRepository.getNbSignalementParType();
 	}
 }
