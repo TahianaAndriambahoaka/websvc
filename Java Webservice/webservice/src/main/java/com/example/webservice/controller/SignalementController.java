@@ -41,11 +41,7 @@ public class SignalementController {
 		return this.signalementRepository.rechercherSignalement(idRegion, idType, status);
 	}
 
-<<<<<<< Updated upstream
-	//Notification
-=======
 	// Notification
->>>>>>> Stashed changes
 	@GetMapping("/listNotification")
 	public List<List<Object>> getListNotification() throws Exception {
 		return this.signalementRepository.getListNotification();
@@ -59,12 +55,7 @@ public class SignalementController {
 
 	// Liste des signalements affectés
 	@GetMapping("/listAffectedSignalement")
-<<<<<<< Updated upstream
-	public  List<List<Object>> getListAffectedSignalement() throws Exception
-	{
-=======
 	public List<List<Object>> getListAffectedSignalement() throws Exception {
->>>>>>> Stashed changes
 		return this.signalementRepository.findAffectedSignalement();
 	}
 
@@ -79,12 +70,7 @@ public class SignalementController {
 
 	// Terminer un signalement
 	@PutMapping("/terminerSignalement/{id}")
-<<<<<<< Updated upstream
-	public void terminerSignalement(@PathVariable(value="id") Long signalementId)
-	{
-=======
 	public void terminerSignalement(@PathVariable(value = "id") Long signalementId) {
->>>>>>> Stashed changes
 		Signalement signalement = signalementRepository.findById(signalementId).get();
 		signalement.setStatus("termine");
 		signalementRepository.save(signalement);
