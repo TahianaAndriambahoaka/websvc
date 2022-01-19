@@ -3,8 +3,6 @@ package com.example.webservice.controller;
 import java.util.HashMap;
 import java.util.List;
 
-
-
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -42,7 +40,6 @@ public class SignalementController {
 		return this.signalementRepository.rechercherSignalement(idRegion,idType,status);
 	}
 
-	
 	//Notification
 	@GetMapping("/listNotification")
 	public  List<List<Object>> getListNotification() throws Exception{
@@ -57,7 +54,8 @@ public class SignalementController {
 
 	//Liste des signalements affectés
 	@GetMapping("/listAffectedSignalement")
-	public  List<List<Object>> getListAffectedSignalement() throws Exception{
+	public  List<List<Object>> getListAffectedSignalement() throws Exception
+	{
 		return this.signalementRepository.findAffectedSignalement();
 	}
 	
@@ -71,7 +69,8 @@ public class SignalementController {
 
 	//Terminer un signalement
 	@PutMapping("/terminerSignalement/{id}")
-	public void terminerSignalement(@PathVariable(value="id") Long signalementId){
+	public void terminerSignalement(@PathVariable(value="id") Long signalementId)
+	{
 		Signalement signalement = signalementRepository.findById(signalementId).get();
 		signalement.setStatus("termine");
 		signalementRepository.save(signalement);

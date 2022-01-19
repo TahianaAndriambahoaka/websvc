@@ -52,8 +52,7 @@ public class PhotoController
 		Photo photo = photoRepository.findById(idPhoto).orElseThrow(()->new ResourceNotFoundException("Photo not found for this id :: " ));
         return ResponseEntity.ok().body(photo);
 	}
-	
-	
+
 	// update
 	@PutMapping("/photo/{id}")
 	public ResponseEntity<Photo> updatePhoto(@PathVariable(value = "id") Long idPhoto , @Valid @RequestBody Photo photoDetails) throws Exception
