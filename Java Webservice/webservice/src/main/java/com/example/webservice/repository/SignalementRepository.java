@@ -32,4 +32,33 @@ public interface SignalementRepository extends JpaRepository<Signalement, Long> 
 	List<Signalement> findByIdRegion(long idRegion);
 
     void save(Optional<Signalement> signalement);
+	
+	// Recherche avancée BackOffice
+	@Query(value="select * from Signalement where EXTRACT(YEAR FROM dateheure) = ?1 and (EXTRACT(MONTH FROM dateheure) between ?2 and ?3)  and idType = ?4",nativeQuery= true)
+	List<Signalement> rechercherSignalementBackOffice(Integer annee, Integer moisDebut, Integer moisFin, Long idType);
+	
+	// Recherche avancée BackOffice
+	@Query(value="select * from Signalement where EXTRACT(YEAR FROM dateheure) = ?1 and idType = ?2",nativeQuery= true)
+	List<Signalement> rechercherSignalementBackOffice(Integer annee, Long idType);
+	
+	// Recherche avancée BackOffice
+	@Query(value="select * from Signalement where EXTRACT(YEAR FROM dateheure) = ?1 and (EXTRACT(MONTH FROM dateheure) between ?2 and ?3)",nativeQuery= true)
+	List<Signalement> rechercherSignalementBackOffice(Integer annee, Integer moisDebut, Integer moisFin);
+	
+	// Recherche avancée BackOffice
+	@Query(value="select * from Signalement where EXTRACT(YEAR FROM dateheure) = ?1",nativeQuery= true)
+	List<Signalement> rechercherSignalementBackOffice(Integer annee);
+	
+	// Recherche avancée BackOffice
+	@Query(value="select * from Signalement where EXTRACT(MONTH FROM dateheure) between ?1 and ?2",nativeQuery= true)
+	List<Signalement> rechercherSignalementBackOffice(Integer moisDebut, Integer moisFin);
+	
+	// Recherche avancée BackOffice
+	@Query(value="select * from Signalement where idType = ?1",nativeQuery= true)
+	List<Signalement> rechercherSignalementBackOffice(Long idType);
+	
+	// getNbSignalementParType BackOffice
+	@Query(value="select Type.id, Type.nom, count(Signalement.id) nb from Signalement join Type on (Type.id=Signalement.idType) group by Type.id, Type.nom",nativeQuery= true)
+	List<Object> getNbSignalementParType();
+	
 }
